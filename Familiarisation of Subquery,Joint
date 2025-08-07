@@ -733,3 +733,10 @@ mysql> SELECT * FROM delhi_employees_view;
 | Smith Jackson |          10 | 8958698569   | Manager   | Finance         | NULL         |
 +---------------+-------------+--------------+-----------+-----------------+--------------+
 
+mysql> select employee_name from delhi_employees_view
+    -> where job_title="Manager" and department_name="Finance";
++---------------+
+| employee_name |
++---------------+
+| Smith Jackson |
++---------------+
