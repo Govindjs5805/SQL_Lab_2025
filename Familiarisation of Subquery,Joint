@@ -626,3 +626,16 @@ mysql> select e.first_name,e.last_name,d.department_name,l.city,l.state_province
 | Zahra      | Fathima   | Taxation        | Washington | California     |
 +------------+-----------+-----------------+------------+----------------+
 
+mysql> select e.first_name,e.last_name,d.department_id,d.department_name
+    -> from employees e
+    -> left join departments d on(e.department_id=d.department_id);
++------------+-----------+---------------+-----------------+
+| first_name | last_name | department_id | department_name |
++------------+-----------+---------------+-----------------+
+| Smith      | Jackson   |             1 | Finance         |
+| Zahra      | Fathima   |             2 | Taxation        |
+| Sugunan    | P P       |             3 | HR              |
+| Ramesh     | Taylor    |             4 | Accounts        |
+| Vivek      | Sharma    |             5 | Statistics      |
++------------+-----------+---------------+-----------------+
+
