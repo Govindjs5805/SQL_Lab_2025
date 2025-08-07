@@ -585,4 +585,20 @@ mysql> select e.first_name,e.last_name,d.department_name from employees e join d
 | Sugunan    | P P       | HR              |
 +------------+-----------+-----------------+
 
+mysql> select d.department_name,l.street_address,l.postal_code,c.country_name,r.region_name
+    -> from departments d
+    -> join locations l on(d.location_id=l.location_id)
+    -> join countries c on(l.country_id=c.country_id)
+    -> join regions r on(c.region_id=r.region_id);
+
++-----------------+-----------------------+-------------+--------------+-------------+
+| department_name | street_address        | postal_code | country_name | region_name |
++-----------------+-----------------------+-------------+--------------+-------------+
+| Finance         | 123 American Junction |       11001 | India        | region 1    |
+| Taxation        | 123 Thoppumpadi       |       11002 | America      | region 2    |
+| HR              | 123 Navas Junction    |       11003 | Canada       | region 3    |
+| Accounts        | 123 Vilas Nivas       |       11004 | UK           | region 4    |
+| Statistics      | 123 Mahesh Nivas      |       11005 | Qatar        | region 5    |
++-----------------+-----------------------+-------------+--------------+-------------+
+
 
