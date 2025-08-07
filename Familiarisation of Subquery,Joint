@@ -601,4 +601,18 @@ mysql> select d.department_name,l.street_address,l.postal_code,c.country_name,r.
 | Statistics      | 123 Mahesh Nivas      |       11005 | Qatar        | region 5    |
 +-----------------+-----------------------+-------------+--------------+-------------+
 
+mysql> select e.first_name,e.last_name,e.department_id,d.department_name
+    -> from employees e
+    -> join departments d on(e.department_id=d.department_id)
+    -> ;
++------------+-----------+---------------+-----------------+
+| first_name | last_name | department_id | department_name |
++------------+-----------+---------------+-----------------+
+| Smith      | Jackson   |             1 | Finance         |
+| Zahra      | Fathima   |             2 | Taxation        |
+| Sugunan    | P P       |             3 | HR              |
+| Ramesh     | Taylor    |             4 | Accounts        |
+| Vivek      | Sharma    |             5 | Statistics      |
++------------+-----------+---------------+-----------------+
+
 
