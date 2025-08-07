@@ -576,5 +576,13 @@ mysql> SELECT *
     ->     FROM dependents
     -> );
 
+mysql> select e.first_name,e.last_name,d.department_name from employees e join departments d on(e.department_id=d.department_id) where e.department_id in (1,2,3);
++------------+-----------+-----------------+
+| first_name | last_name | department_name |
++------------+-----------+-----------------+
+| Smith      | Jackson   | Finance         |
+| Zahra      | Fathima   | Taxation        |
+| Sugunan    | P P       | HR              |
++------------+-----------+-----------------+
 
 
