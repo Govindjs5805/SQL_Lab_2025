@@ -740,3 +740,11 @@ mysql> select employee_name from delhi_employees_view
 +---------------+
 | Smith Jackson |
 +---------------+
+
+mysql> UPDATE delhi_employees_view
+    -> SET phone_number = '9999999999'
+    -> WHERE employee_name LIKE 'Smith%';
+ERROR 1288 (HY000): The target table delhi_employees_view of the UPDATE is not updatable
+mysql> UPDATE employees
+    -> SET phone_number = '9999999999'
+    -> WHERE first_name = 'Smith';
