@@ -652,4 +652,16 @@ mysql> select e.first_name as employee_name,m.first_name as manager_name
 | Vivek         | NULL         |
 +---------------+--------------+
 
+mysql> SELECT first_name, last_name, department_id
+    -> FROM employees
+    -> WHERE department_id = (
+    ->     SELECT department_id
+    ->     FROM employees
+    ->     WHERE last_name = 'Taylor'
+    -> );
++------------+-----------+---------------+
+| first_name | last_name | department_id |
++------------+-----------+---------------+
+| Ramesh     | Taylor    |             4 |
++------------+-----------+---------------+
 
