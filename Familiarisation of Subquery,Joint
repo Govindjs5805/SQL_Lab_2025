@@ -665,3 +665,21 @@ mysql> SELECT first_name, last_name, department_id
 | Ramesh     | Taylor    |             4 |
 +------------+-----------+---------------+
 
+mysql> SELECT 
+    ->     j.job_title,
+    ->     CONCAT(e.first_name, ' ', e.last_name) AS employee_name,
+    ->     (j.max_salary - e.salary) AS salary_difference
+    -> FROM 
+    ->     employees e
+    -> JOIN 
+    ->     jobs j ON e.job_id = j.job_id;
++--------------+---------------+-------------------+
+| job_title    | employee_name | salary_difference |
++--------------+---------------+-------------------+
+| Manager      | Smith Jackson |              5000 |
+| AssManager   | Zahra Fathima |             22000 |
+| HR EXECUTIVE | Sugunan P P   |              2000 |
+| EXECUTIVE    | Ramesh Taylor |              2000 |
+| Designer     | Vivek Sharma  |               200 |
++--------------+---------------+-------------------+
+
