@@ -703,3 +703,33 @@ mysql> SELECT
 | Accounts        |      8000.0000 |             1 |
 | Statistics      |       800.0000 |             1 |
 +-----------------+----------------+---------------+
+
+mysql> CREATE VIEW delhi_employees_view AS
+    -> SELECT 
+    ->     CONCAT(e.first_name, ' ', e.last_name) AS employee_name,
+    ->     e.employee_id,
+    ->     e.phone_number,
+    ->     j.job_title,
+    ->     d.department_name,
+    ->     CONCAT(m.first_name, ' ', m.last_name) AS manager_name
+    -> FROM 
+    ->     employees e
+    -> JOIN 
+    ->     jobs j ON e.job_id = j.job_id
+    -> JOIN 
+    ->     departments d ON e.department_id = d.department_id
+    -> JOIN 
+    ->     locations l ON d.location_id = l.location_id
+    -> LEFT JOIN 
+    ->     employees m ON e.manager_id = m.employee_id
+    -> WHERE 
+    ->     l.city = 'Delhi';
+Query OK, 0 rows affected (0.31 sec)
+
+mysql> SELECT * FROM delhi_employees_view;
++---------------+-------------+--------------+-----------+-----------------+--------------+
+| employee_name | employee_id | phone_number | job_title | department_name | manager_name |
++---------------+-------------+--------------+-----------+-----------------+--------------+
+| Smith Jackson |          10 | 8958698569   | Manager   | Finance         | NULL         |
++---------------+-------------+--------------+-----------+-----------------+--------------+
+
