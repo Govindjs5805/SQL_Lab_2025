@@ -1,0 +1,41 @@
+create database DBMSNew;
+
+use DBMSNew
+
+create table Employee(emp_no varchar(10),emp_name varchar(20),dob date,address text,mobile_no int,dept_no varchar(10),salary int);
+
+create table Department(dept_no varchar(10),dept_name varchar(20),location varchar(10));
+
+desc Employee;
+
+desc Department;
+
+alter table Employee add column(Designation varchar(20));
+
+alter table Department drop column location;
+
+insert into Employee values('1','John','2025-07-12','Sumathi Vilas',48754684,'D01',15000,'Manager');
+insert into Employee values('2','Akash','2025-07-11','Saran Vilas',48754683,'D02',7000,'Ass Manager');
+insert into Employee values('3','Praveen','2025-05-11','Arun Vilas',48714683,'D03',11000,'HR Manager');
+insert into Employee values('4','Prakash','2025-04-11','Vikas Vilas',48724683,'D04',5000,'Finance Manager');
+insert into Employee values('5','Vivek','2025-03-11','Sagar Vilas',48724673,'D05',20000,'Dep Manager');
+
+insert into Department values(('D01','HR')
+insert into Department values('D02','Finance');
+insert into Department values('D03','Accounts');
+insert into Department values('D04','Management');
+insert into Department values('D05','Transport');
+
+select *from Employee;
+
+select *from Department;
+
+select emp_no,emp_name from Employee where dept_no='D02';
+
+select emp_no,emp_name,Designation,dept_no,salary from Employee order by salary desc;
+
+update Employee set mobile_no=58798568 where emp_name='John';
+
+select emp_name as Employee_Name,mobile_no as Mobile from Employee where emp_name like 'A%';
+
+select dept_no,count(*) as Number_of_Employees from Department group by dept_no;
